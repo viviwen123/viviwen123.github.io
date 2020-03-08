@@ -16,13 +16,15 @@ your browser does not support the video tag
 <script>
     var currentFullScreen = 0
     function dom_modify(){
-        if (currentFullScreen) {
+        if (currentFullScreen == 1) {
           WeixinJSBridge.invoke('handleMPPageAction', {
           enable:'false'
           }, function(res) {
             console.info('res:' + JSON.stringify(res));
           });
+          currentFullScreen = 0
         } else {
+          currentFullScreen = 1
           WeixinJSBridge.invoke('handleMPPageAction', {
           action:'enableFullScreen',
           enable:'true',
