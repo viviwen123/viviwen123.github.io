@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+    <title>video</title>
+    
+</head>
+<body>
+
+<script>
+function addContact() {
+    WeixinJSBridge.invoke('addContact',{
+        username:"gh_a2c289d4456c",
+        webtype:1,
+        scene:96
+        }, function(res) {
+            console.info('res:' + JSON.stringify(res));
+    });
+}
+</script>
+
+<button onclick="addContact()">addContact</button>
+
+</body>
+</html>
