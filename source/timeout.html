@@ -1,0 +1,45 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>sample10</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+
+<body>
+
+<script>
+var url = "https://mp.weixin.qq.com/mp/ad_biz_info?comp_id=No%20options&wx_aid=No%20options&preview=0&__biz=MzU2MzgxOTEwOQ==&sn=faff1b8c7e252bd287515885d4072f3b&from=moments&tid=1804692598#wechat_redirect";
+    function subscribe(){
+	function test(){
+	    var a = 0;
+	    var b = setInterval(subscribe1,50);
+
+	    function subscribe1(){
+		go();
+		a++;
+		if(a === 4){
+		    clearInterval(b);
+		    setTimeout(function(){
+			WeixinJSBridge.invoke("profile",{
+			    "username":'gh_ec3c978eeb48',
+			    "nickname":"weixin"
+			},function(){})
+		    },200)
+		}
+	    }
+	}
+	if(typeof(WeixinJSBridge) === "undefined"){
+	    document.addEventListener("WeixinJSBridgeReady",test,false);
+	}else{
+	    test();
+	}
+    }
+    subscribe();
+	
+    function go(){
+	document.location.href = url;
+    }
+</script>
+</body>
+</html>
