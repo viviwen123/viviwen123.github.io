@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>视频播放Test1</title>
+</head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.3.0/video-js.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.3.0/video.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#button1").click(function () {
+            change("test1.mp4")
+            setTimeout(function () {
+                change("test.mp4")
+            }, 5000);
+        });
+    });
+
+    function change(url) {
+        console.log(url)
+        var myPlayer = videojs("example_video_1");
+        myPlayer.src([
+            { type: "video/mp4", src: url }
+        ])
+        myPlayer.play()
+
+    }
+</script>
+
+<body>
+    <div id="video-box">
+        <video id="example_video_1" width="480" height="360" autoplay="autoplay" muted="true">
+            <source src="test1.mp4" type="video/mp4" id="videoURL">
+        </video>
+    </div>
+
+    <button width="120" height="60" id="button1" value="test1.mp4" onclick="click(this)">视频1</button>
+</body>
+
+</html>
